@@ -1,5 +1,5 @@
-hash: 96777d0a7f48ebbb7f260868c99cdeb0b62c1d23d2ffc13d9950cfa90612bec3
-updated: 2018-11-14T19:02:35.129419-08:00
+hash: 93ac11589d71d2ef19807517e1180c33371d18174618fd673dd8825dc3ac7d5e
+updated: 2018-12-20T16:36:29.990251-08:00
 imports:
 - name: github.com/armon/go-metrics
   version: 783273d703149aaeb9897cf58613d5af48861c25
@@ -13,8 +13,12 @@ imports:
   version: 19cb9f127a9c8d2034cf59ccb683cdb94b9deb6c
   subpackages:
   - linux
+- name: github.com/Comcast/golang-money
+  version: 6dded2db26bc71830d013489961b285946f70658
+  repo: git@github.com:githubsands/golang-money.git
 - name: github.com/Comcast/webpa-common
-  version: 11a5e3024661b9f1ed0df38eeddb001f0be94202
+  version: 97b5b4f072f173498ee87057ee02a91d7d664697
+  repo: git@github.com:githubsands/webpa-common.git
   subpackages:
   - capacitor
   - clock
@@ -203,11 +207,10 @@ imports:
   version: 12b6f73e6084dad08a7c6e575284b177ecafbc71
   subpackages:
   - assert
-  - linux
   - mock
   - require
 - name: github.com/ugorji/go
-  version: 00a57e09e383d445aeef6c6cd642969dc4360231
+  version: 772ced7fd4c2f6322c07537a9a93b68d74551fa6
   subpackages:
   - codec
 - name: github.com/VividCortex/gohistogram

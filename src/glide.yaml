@@ -1,5 +1,22 @@
 package: .
-homepage: https://github.com/Comcast/talaria
+homepage: https://github.com/Comcast/talaria 
 import:
 - package: github.com/Comcast/webpa-common
-  version: 11a5e3024661b9f1ed0df38eeddb001f0be94202
+  version: feature/webpa_money_decorator
+  repo: git@github.com:githubsands/webpa-common.git
+
+- package: github.com/prometheus/client_golang
+  version: 967789050ba94deca04a5e84cce8ad472ce313c1
+  subpackages:
+  - prometheus
+  - prometheus/promhttp
+
+- package: github.com/Comcast/golang-money
+  version: complete_golang_money
+  repo: git@github.com:githubsands/golang-money.git
+
+- package: github.com/ugorji/go/codec
+  version: 772ced7fd4c2f6322c07537a9a93b68d74551fa6
+
+- package: github.com/spf13/viper
+  version: 25b30aa063fc18e48662b86996252eabdcf2f0c7
