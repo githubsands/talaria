@@ -20,3 +20,14 @@ import:
 
 - package: github.com/spf13/viper
   version: 25b30aa063fc18e48662b86996252eabdcf2f0c7
+
+- package: github.com/influxdata/influxdb
+  version: de58584ce723da61d6cce6c4b92131143c06eea4
+  subpackages:
+  - client/v2
+  - models
+  - pkg/escape
+
+- package: github.com/Comcast/golang-money 
+  version: most_recent_money
+  repo: git@github.com:githubsands/talaria.git

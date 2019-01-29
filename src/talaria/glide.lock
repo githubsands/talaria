@@ -1,5 +1,5 @@
 hash: 2e4577e7d1e61150475fb748f120892d37e108178ab79b63290bfc8f4bf92c48
-updated: 2019-01-29T13:55:48.138789-07:00
+updated: 2019-01-29T13:20:22.651669-07:00
 imports:
 - name: github.com/armon/go-metrics
   version: f0300d1749da6fa982027e449ec0c7a145510c3c
@@ -17,7 +17,7 @@ imports:
   version: bb29fa5ad0b1e2a305eb47960206bd9a3e534097
   repo: git@github.com:githubsands/golang-money.git
 - name: github.com/Comcast/webpa-common
-  version: 4a51b76a818c72b2d6a450ac5be7d0a31c5a9cf8
+  version: f58ee1410b29a341c099462e4a9423d77241cfd5
   repo: git@github.com:githubsands/webpa-common.git
   subpackages:
   - capacitor

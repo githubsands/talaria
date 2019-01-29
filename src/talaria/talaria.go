@@ -22,6 +22,7 @@ import (
 	"os"
 	"os/signal"
 
+	"github.com/Comcast/talaria/money"
 	"github.com/Comcast/webpa-common/concurrent"
 	"github.com/Comcast/webpa-common/device"
 	"github.com/Comcast/webpa-common/device/devicehealth"
@@ -44,7 +45,7 @@ const (
 	defaultVnodeCount int = 211
 )
 
-func newDeviceManager(logger log.Logger, r xmetrics.Registry, v *viper.Viper) (device.Manager, error) {
+func newDeviceManager(logger log.Logger, r xmetrics.Registry, v *viper.Viper, tc MoneyContainer) (device.Manager, error) {
 	deviceOptions, err := device.NewOptions(logger, v.Sub(device.DeviceManagerKey))
 	if err != nil {
 		return nil, err
@@ -64,6 +65,8 @@ func newDeviceManager(logger log.Logger, r xmetrics.Registry, v *viper.Viper) (d
 	deviceOptions.Listeners = []device.Listener{
 		outboundListener,
 	}
+
+	deviceOptions.Listeners = money.DecorateListeners(deviceOptions.Listeners, tc)
 
 	return device.NewManager(deviceOptions), nil
 }
@@ -117,6 +120,9 @@ func talaria(arguments []string) int {
 		logger.Log(level.Key(), level.ErrorValue(), logging.MessageKey(), "Unable to start device management", logging.ErrorKey(), err)
 		return 4
 	}
+
+	httpSpanner := money.NewHTTPSpanner(money.TalariaON())
+	httpSpanner.Decorate(primaryHandler)
 
 	_, talariaServer, done := webPA.Prepare(logger, health, metricsRegistry, primaryHandler)
 	waitGroup, shutdown, err := concurrent.Execute(talariaServer)
